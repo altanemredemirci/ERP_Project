@@ -1,0 +1,6 @@
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\bin\Debug\ERP.Entity.dll
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\bin\Debug\ERP.Entity.pdb
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\obj\Debug\ERP.Entity.csproj.AssemblyReference.cache
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\obj\Debug\ERP.Entity.csproj.CoreCompileInputs.cache
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\obj\Debug\ERP.Entity.dll
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.Entity\obj\Debug\ERP.Entity.pdb

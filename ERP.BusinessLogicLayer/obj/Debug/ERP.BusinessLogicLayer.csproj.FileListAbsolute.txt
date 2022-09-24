@@ -1,0 +1,2 @@
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.BusinessLogicLayer\obj\Debug\ERP.BusinessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\altan\source\repos\YAZILIMUZMANLIGI_19-22\WEB YAZILIM\8.Hafta\ERP\ERP.BusinessLogicLayer\obj\Debug\ERP.BusinessLogicLayer.csproj.CoreCompileInputs.cache
