@@ -11,6 +11,7 @@ namespace ERP.WEBUI.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ERP.BusinessLogicLayer.Test test = new BusinessLogicLayer.Test();
             return View();
         }
     }

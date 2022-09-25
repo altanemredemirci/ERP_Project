@@ -16,6 +16,8 @@ namespace ERP.DataAccessLayer
         {
             //Database.Connection.ConnectionString = "Server = DESKTOP - 9IJKPL9\SQLDERS; Database = ERPDB; uid = sa; pwd = 1";
             //Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["MSSQL"].ConnectionString;
+
+            Database.SetInitializer(new MyInitializer());
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Product> Products { get; set; }

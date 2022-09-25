@@ -30,5 +30,10 @@ namespace ERP.Entity
         [Required]
         public string Name { get; set; }
         public List<Person> Persons { get; set; }
+
+        public Unit()
+        {
+            Persons = new List<Person>();
+        }
     }
 }

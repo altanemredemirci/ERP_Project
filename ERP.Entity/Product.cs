@@ -10,7 +10,7 @@ namespace ERP.Entity
     public class Product:BaseEntity
     {
         [Required, StringLength(25)]
-        public string Branch { get; set; }
+        public string Brand { get; set; }
         [Required, StringLength(25)]
         public string Model { get; set; }
         [Required, StringLength(15)]
