@@ -38,11 +38,31 @@ namespace ERP.DataAccessLayer.EF
         public int Insert(T obj) // Product obj
         {
             _objectSet.Add(obj); // db.Products.Add(obj)
+
+            if(obj is BaseEntity)
+            {
+                BaseEntity o = obj as BaseEntity;
+                DateTime now = DateTime.Now;
+
+                o.CreateOn = now;
+                o.ModifiedOn = now;
+                o.ModifiedUsername = "altanemre";
+            }
+
             return Save();
         }
 
-        public int Update(T obj) 
+        public int Update(T obj)
         {
+            if (obj is BaseEntity)
+            {
+                BaseEntity o = obj as BaseEntity;
+                DateTime now = DateTime.Now;
+
+                o.CreateOn = now;
+                o.ModifiedOn = now;
+                o.ModifiedUsername = "altanemre";
+            }
             return Save();
         }
         public int Delete(T obj)
@@ -53,6 +73,11 @@ namespace ERP.DataAccessLayer.EF
         public int Save()
         {
             return db.SaveChanges();
+        }
+
+        public IQueryable<T> ListQueryable()
+        {
+            return _objectSet.AsQueryable<T>();
         }
     }
 }

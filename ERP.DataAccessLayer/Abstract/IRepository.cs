@@ -10,6 +10,7 @@ namespace ERP.DataAccessLayer.Abstract
     public interface IRepository<T>
     {
         List<T> List();
+        IQueryable<T> ListQueryable();
         List<T> List(Expression<Func<T, bool>> where);
         T Find(Expression<Func<T, bool>> where);
         int Insert(T obj);

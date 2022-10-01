@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ERP.DataAccessLayer.MySQL
 {
-    public class Repository<T> : IRepository<T>
+    public class Repository<T> //: IRepository<T>
     {
         public int Delete(T obj)
         {
