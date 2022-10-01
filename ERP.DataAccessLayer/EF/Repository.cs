@@ -1,4 +1,4 @@
-﻿using ERP.DataAccessLayer;
+﻿using ERP.DataAccessLayer.Abstract;
 using ERP.Entity;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.DataAccessLayer
+namespace ERP.DataAccessLayer.EF
 {
-    public class Repository<T>: RepositoryBase where T : class // where T class yazılmaz ise T generic olarak int bile gelse Set etmeye çalışır.
+    public class Repository<T>: RepositoryBase,IRepository<T> where T : class // where T class yazılmaz ise T generic olarak int bile gelse Set etmeye çalışır.
     {
         //private DatabaseContext db = new DatabaseContext();//singleton Pattern
 
@@ -50,7 +50,7 @@ namespace ERP.DataAccessLayer
             _objectSet.Remove(obj); 
             return Save();
         }
-        private int Save()
+        public int Save()
         {
             return db.SaveChanges();
         }

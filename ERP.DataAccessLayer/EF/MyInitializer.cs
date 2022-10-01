@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ERP.DataAccessLayer
 {
     public class MyInitializer:CreateDatabaseIfNotExists<DatabaseContext>
-    {
+    {        
         protected override void Seed(DatabaseContext context)       
         {
             // Adding Categories..

@@ -24,16 +24,4 @@ namespace ERP.Entity
         public int UnitId { get; set; }
         public Unit Unit { get; set; }
     }
-
-    public class Unit : BaseEntity
-    {
-        [Required]
-        public string Name { get; set; }
-        public List<Person> Persons { get; set; }
-
-        public Unit()
-        {
-            Persons = new List<Person>();
-        }
-    }
 }

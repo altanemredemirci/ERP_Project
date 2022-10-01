@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="UnitManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.DataAccessLayer\ERP.DataAccessLayer.csproj">

@@ -1,4 +1,5 @@
-﻿using ERP.Entity;
+﻿using ERP.BusinessLogicLayer;
+using ERP.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,11 @@ namespace ERP.WEBUI.Controllers
 {
     public class HomeController : Controller
     {
+        UnitManager unitManager = new UnitManager();
         // GET: Home
         public ActionResult Index()
         {
-            BusinessLogicLayer.Test test = new BusinessLogicLayer.Test();
-
-            //test.UpdateTest();
-            test.InsertTest();
-            return View();
+            return View(unitManager.GetUnits());
         }
     }
 }
