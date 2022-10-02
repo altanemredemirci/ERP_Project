@@ -34,5 +34,15 @@ namespace ERP.BusinessLogicLayer
         {
             return repo_unit.Find(i=> i.Id==id);
         }
+
+        public int UpdateUnit(Unit model)
+        {
+            return repo_unit.Update(model);
+        }
+
+        public int DeleteUnit(Unit model)
+        {
+            return repo_unit.Delete(model);
+        }
     }
 }

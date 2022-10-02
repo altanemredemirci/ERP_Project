@@ -1,0 +1,26 @@
+﻿@using ERP.Entity
+@model List<Person>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            <a href="/Person/Edit/@item.Id" class="btn btn-warning btn-xs">
+                <i class="far fa-edit"></i>
+            </a>
+            <a href="/Person/Delete" class="btn btn-danger btn-xs">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </td>
+
+    </tr>
+}

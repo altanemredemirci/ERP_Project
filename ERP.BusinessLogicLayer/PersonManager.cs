@@ -15,5 +15,39 @@ namespace ERP.BusinessLogicLayer
         {
            return repo_person.List(i => i.UnitId == id);
         }
+
+        public List<Person> GetAll()
+        {
+            return repo_person.List();
+        }
+
+        public int AddPerson(Person p)
+        {
+            var person = repo_person.Find(i => i.Email == p.Email);
+            if (person != null)
+            {
+                return 0;
+            }
+
+            return repo_person.Insert(p);
+
+        }
+
+        public Person GetById(int id)
+        {
+           return repo_person.Find(i => i.Id == id);
+        }
+
+        public int UpdatePerson(Person model)
+        {
+            return repo_person.Update(model);
+        }
+
+        public int DeletePerson(int id)
+        {
+            var model = repo_person.Find(i => i.Id == id);
+
+            return repo_person.Delete(model);
+        }
     }
 }

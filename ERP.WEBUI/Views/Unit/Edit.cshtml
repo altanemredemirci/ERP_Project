@@ -37,36 +37,13 @@
             <th></th>
         </tr>
 
-        @foreach (var item in Model.Persons)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Surname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    <a href="/Person/Edit/@item.Id" class="btn btn-warning btn-xs">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    <a href="/Person/Delete" class="btn btn-danger btn-xs">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-              
-            </tr>
-        }
+      @Html.Action("GetPersonByUnit", "Person", new {id=Model.Id})
 
     </table>
 
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Update" class="btn btn-default" />
         </div>
     </div>
 </div>

@@ -51,14 +51,12 @@ namespace ERP.WEBUI.Controllers
             }
 
             Unit unit = unitManager.GetUnitById(id.Value);
-
-            unit.Persons = personManager.GetPersonByUnit(unit.Id);
-
+                   
             if (unit == null)
             {
                 return HttpNotFound();
             }
-
+            unit.Persons = personManager.GetPersonByUnit(unit.Id);
             return View(unit);
         }
 
@@ -68,13 +66,43 @@ namespace ERP.WEBUI.Controllers
             ModelState.Remove("ModifiedUsername");
             if (ModelState.IsValid)
             {
-                unitManager.AddUnit(model);
 
-                return RedirectToAction("Index");
+                var unit = unitManager.GetUnitById(model.Id);
+                if (unit != null)
+                {
+                    unit.Name = model.Name;
+
+                    unitManager.UpdateUnit(unit);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(model);
+                }
+               
             }
 
             return View(model);
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var unit = unitManager.GetUnitById(id.Value);
+
+            if (unit != null)
+            {
+                unitManager.DeleteUnit(unit);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(unit);
+        }
+       
     }
 }
