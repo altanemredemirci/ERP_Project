@@ -30,11 +30,11 @@
             @Html.DisplayNameFor(model => model.IsAdmin)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreateOn)
+            @Html.DisplayNameFor(model => model.Unit)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedOn)
-        </th>
+            @Html.DisplayNameFor(model => model.CreateOn)
+        </th>        
         <th>
             @Html.DisplayNameFor(model => model.ModifiedUsername)
         </th>
@@ -61,10 +61,10 @@
                 @Html.DisplayFor(modelItem => item.IsAdmin)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreateOn)
+                @Html.DisplayFor(modelItem => item.Unit.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ModifiedOn)
+                @Html.DisplayFor(modelItem => item.CreateOn)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ModifiedUsername)
