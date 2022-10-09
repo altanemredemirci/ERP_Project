@@ -22,21 +22,21 @@ namespace ERP.WEBUI.Controllers
         }
 
         // GET: Category/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Category category = db.Categories.Find(id);
-        //    if (category == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(category);
-        //}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Category category = categoryManager.Find(i=> i.Id==id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            return View(category);
+        }
 
-   
+
         public ActionResult Create()
         {
             return View(new Category());
@@ -79,20 +79,20 @@ namespace ERP.WEBUI.Controllers
             ModelState.Remove("ModifiedUsername");
             if (ModelState.IsValid)
             {
-                Category category = categoryManager.Find(c => c.Id == cat.Id);
+                Category category = categoryManager.Find(i => i.Id == cat.Id);
 
                 if (category == null)
-                {
                     return HttpNotFound();
-                }
 
+                category.Products = cat.Products;
                 category.Name = cat.Name;
-                category.Description = cat.Description;                
+                category.Description = cat.Description;
 
-                int sonuc = categoryManager.Update(category);
+                categoryManager.Update(category);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Category");
             }
+
             return View(cat);
         }
 

@@ -4,53 +4,92 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Kategori Detay</h2>
 
 <div>
-    <h4>Category</h4>
+   
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUsername)
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayName(Model.Name)
+            </td>
+            <td>
+                @Html.DisplayName(Model.Description)
+            </td>
+            <td>
+                @Html.DisplayName(Model.CreateOn.ToString())
+            </td>
+            <td>
+                @Html.DisplayName(Model.ModifiedOn.ToString())
+            </td>
+            <td>
+                @Html.DisplayName(Model.ModifiedUsername)
+            </td>
+            <td></td>
+        </tr>
+    </table>
+        <table class="table">
+            <tr>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Color
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Stock
+                </th>
+                <th></th>
+            </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Brand</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                    <td>@item.Model</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateOn)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreateOn)
-        </dd>
+                    <td>@item.Color</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedOn)
-        </dt>
+                    <td>@item.Price</td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedOn)
-        </dd>
+                    <td>@item.Stock</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUsername)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUsername)
-        </dd>
-
-    </dl>
+                    <td>
+                        <a href="/Product/Details/@item.Id" class="btn btn-info btn-xs">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

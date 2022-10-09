@@ -65,8 +65,8 @@ namespace ERP.DataAccessLayer.EF
             }
             return Save();
         }
-        public int Delete(T obj)
-        {
+        public virtual int Delete(T obj)
+        {           
             _objectSet.Remove(obj); 
             return Save();
         }

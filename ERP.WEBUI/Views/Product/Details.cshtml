@@ -1,0 +1,61 @@
+﻿@model ERP.Entity.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ürün Detay</h2>
+
+<div>
+    
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayName(Model.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayName(Model.Brand)
+            </td>
+            <td>
+                @Html.DisplayName(Model.Model)
+            </td>
+            <td>
+                @Html.DisplayName(Model.Color)
+            </td>
+            <td>
+                @Html.DisplayName(Model.Price.ToString())
+            </td>
+            <td>
+                @Html.DisplayName(Model.Stock.ToString())
+            </td>
+        </tr>
+
+</table>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

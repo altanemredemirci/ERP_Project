@@ -3,6 +3,7 @@ using ERP.DataAccessLayer.EF;
 using ERP.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -35,11 +36,26 @@ namespace ERP.BusinessLogicLayer
 
         public int Update(Category model)
         {
-            return repo_category.Update(model);
+            using (var context = new DatabaseContext())
+            {
+                context.Entry(model).State = EntityState.Modified;
+
+                return context.SaveChanges();
+            }
+            //return repo_category.Update(model);
         }
         public int Delete(Category cat)
         {            
-            return repo_category.Delete(cat);
+            using(var context = new DatabaseContext())
+            {
+               
+                context.Entry(cat).State = EntityState.Deleted;
+
+                context.Categories.Remove(cat);
+
+                return context.SaveChanges();
+            }
+            //return repo_category.Delete(cat);
         }
     }
 }
