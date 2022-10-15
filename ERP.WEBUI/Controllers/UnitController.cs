@@ -1,5 +1,6 @@
 ﻿using ERP.BusinessLogicLayer;
 using ERP.Entity;
+using ERP.WEBUI.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using Unit = ERP.Entity.Unit;
 
 namespace ERP.WEBUI.Controllers
 {
+    [Auth]
     public class UnitController : Controller
     {
         private UnitManager unitManager = new UnitManager();
@@ -17,9 +19,8 @@ namespace ERP.WEBUI.Controllers
         // GET: Unit
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Home");
+            return View(unitManager.GetUnits());
         }
-
         public ActionResult Create()
         {
             return View(new Unit());

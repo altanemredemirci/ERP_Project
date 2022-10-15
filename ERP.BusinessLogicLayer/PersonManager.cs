@@ -1,5 +1,6 @@
 ﻿using ERP.DataAccessLayer.EF;
 using ERP.Entity;
+using ERP.Entity.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,11 @@ namespace ERP.BusinessLogicLayer
             var model = repo_person.Find(i => i.Id == id);
 
             return repo_person.Delete(model);
+        }
+
+        public Person LoginPerson(LoginModel model)
+        {
+            return repo_person.Find(i => i.Email == model.Email && i.Password == model.Password);
         }
     }
 }

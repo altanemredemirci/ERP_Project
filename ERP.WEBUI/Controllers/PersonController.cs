@@ -1,5 +1,6 @@
 ﻿using ERP.BusinessLogicLayer;
 using ERP.Entity;
+using ERP.WEBUI.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ERP.WEBUI.Controllers
 {
+    [Auth]
     public class PersonController : Controller
     {
         private PersonManager personManager = new PersonManager();

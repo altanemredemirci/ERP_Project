@@ -91,51 +91,55 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="/Unit" class="nav-link">
-                                <i class="nav-icon fas fa-warehouse"></i>
-                                <p>
-                                    Birimler
-                                </p>
-                            </a>
-                        </li>
+                    @if (Session["login"] != null)
+                    {
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a href="/Unit" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>
+                                        Birimler
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="/Category/Index" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Kategoriler
-                                </p>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="/Category/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Kategoriler
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="/Product/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tv"></i>
-                                <p>
-                                    Ürünler
-                                </p>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="/Product/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-tv"></i>
+                                    <p>
+                                        Ürünler
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="/Person" class="nav-link">
-                                <i class="nav-icon fas fa-user-friends"></i>
-                                <p>
-                                    Personeller
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-cart-plus"></i>
-                                <p>
-                                    Siparişler
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
+                            <li class="nav-item">
+                                <a href="/Person" class="nav-link">
+                                    <i class="nav-icon fas fa-user-friends"></i>
+                                    <p>
+                                        Personeller
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-cart-plus"></i>
+                                    <p>
+                                        Siparişler
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    }
+
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

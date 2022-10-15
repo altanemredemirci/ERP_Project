@@ -8,10 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using ERP.BusinessLogicLayer;
 using ERP.Entity;
-
+using ERP.WEBUI.Filters;
 
 namespace ERP.WEBUI.Controllers
 {
+    [Auth]
     public class ProductController : Controller
     {
         private ProductManager productManager = new ProductManager();

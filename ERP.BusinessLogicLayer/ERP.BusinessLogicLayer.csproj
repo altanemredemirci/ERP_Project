@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryManager.cs" />
+    <Compile Include="CustomerManager.cs" />
     <Compile Include="PersonManager.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
