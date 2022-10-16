@@ -30,6 +30,9 @@
     <!-- jQuery -->
     <script src="~/Content/plugins/jquery/jquery.min.js"></script>
 </head>
+@{ 
+   
+}
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
@@ -91,7 +94,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    @if (Session["login"] != null)
+                    @if (Session["person"] != null)
                     {
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item">

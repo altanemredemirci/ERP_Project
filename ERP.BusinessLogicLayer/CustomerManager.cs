@@ -29,13 +29,32 @@ namespace ERP.BusinessLogicLayer
             customer.Name = model.Name;
             customer.Surname = model.Surname;
             customer.Password = model.Password;
+            customer.IsActive = false;
 
             return repo_customer.Insert(customer);
         }
 
         public Customer LoginCustomer(LoginModel model)
         {
-            return repo_customer.Find(i => i.Email == model.Email && i.Password == model.Password);
+            return repo_customer.Find(i => i.Email == model.Email && i.Password == model.Password && i.IsActive==true);
+        }
+
+        public Customer GetByEmail(string Email)
+        {
+            return repo_customer.Find(i => i.Email == Email);
+        }
+
+        public int UserActivate(string email)
+        {
+            Customer customer = repo_customer.Find(i => i.Email == email);
+
+            if (customer != null)
+            {
+                customer.IsActive = true;
+                return repo_customer.Update(customer);
+            }
+
+            return 0;
         }
     }
 }

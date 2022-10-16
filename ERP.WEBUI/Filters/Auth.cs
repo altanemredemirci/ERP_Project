@@ -10,7 +10,7 @@ namespace ERP.WEBUI.Filters
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (HttpContext.Current.Session["login"] == null)
+            if (HttpContext.Current.Session["person"] == null && HttpContext.Current.Session["customer"] == null)
             {
                 filterContext.Result = new RedirectResult("/Home/Login");
             }

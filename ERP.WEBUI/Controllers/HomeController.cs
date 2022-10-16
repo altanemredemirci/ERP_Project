@@ -4,6 +4,8 @@ using ERP.Entity.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,6 +35,32 @@ namespace ERP.WEBUI.Controllers
 
                 else if (sonuc == 1)
                 {
+                    Customer customer = customerManager.GetByEmail(model.Email);
+
+                    string siteUrl = "https://localhost:44345/";
+                    string activeUrl = $"{siteUrl}Home/UserActivate?email={customer.Email}";
+                    string body = $"Merhaba {customer.Name} {customer.Surname};<br><br>Hesabınızı aktifleştirmek için <a href='{activeUrl}' target='_blank'> tıklayınız.</a>.";
+
+
+                    var message = new MailMessage();
+
+                    message.From = new MailAddress("test_altan_emre_1989@hotmail.com");
+
+                    message.To.Add(new MailAddress(customer.Email));
+
+                    message.Subject = "Üyelik Onayı";
+                    message.Body = body;
+                    message.IsBodyHtml = true;
+
+                    using(var smtp = new SmtpClient("smtp-mail.outlook.com", 587))
+                    {
+                        smtp.EnableSsl = true;
+                        smtp.Credentials = new NetworkCredential("test_altan_emre_1989@hotmail.com", "UBY12345");
+
+                        smtp.Send(message);
+                            
+                    }
+
                     return RedirectToAction("Login");
                 }
                 else
@@ -49,11 +77,11 @@ namespace ERP.WEBUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-
                 if (model.IsPerson)
                 {
                     Person person = personManager.LoginPerson(model);
@@ -62,7 +90,7 @@ namespace ERP.WEBUI.Controllers
                         ModelState.AddModelError("", "Giriş Bilgisi Hatalı!!");
                         return View(model);
                     }
-                    Session["login"] = person;
+                    Session["person"] = person;
                     return RedirectToAction("Index", "Unit");
                 }
 
@@ -72,10 +100,19 @@ namespace ERP.WEBUI.Controllers
                     ModelState.AddModelError("", "Giriş Bilgisi Hatalı veya Kayıtlı Olmayan Giriş");
                     return View(model);
                 }
-                Session["login"]=customer;
-                return RedirectToAction("Index","Order");
+                Session["customer"]=customer;
+                return RedirectToAction("AddOrder","Order");
             }
             return View(model);
+        }
+
+        public ActionResult UserActivate(string email)
+        {
+            if (customerManager.UserActivate(email) > 0)
+            {
+                return RedirectToAction("Login");
+            }
+            return RedirectToAction("Register");
         }
     }
 }
